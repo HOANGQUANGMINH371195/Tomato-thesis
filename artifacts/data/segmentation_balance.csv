@@ -1,0 +1,4 @@
+label,count,fraction,inverse_frequency_weight
+early_blight,202,0.33499170812603646,0.995049504950495
+late_blight,201,0.3333333333333333,1.0
+bacterial_spot,200,0.33167495854063017,1.005

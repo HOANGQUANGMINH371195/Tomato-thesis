@@ -1,0 +1,180 @@
+{
+  "task": "classification_baseline",
+  "model": "densenet121_baseline",
+  "best_val_macro_f1": 1.0,
+  "best_epoch": 12,
+  "test": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "matthews_correlation_coefficient": 1.0,
+    "cohen_kappa": 1.0,
+    "classification_report": {
+      "healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 159.0
+      },
+      "early_blight": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 100.0
+      },
+      "late_blight": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 190.0
+      },
+      "bacterial_spot": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 213.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 662.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 662.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        159,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        190,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        213
+      ]
+    ],
+    "per_class": {
+      "healthy": {
+        "tp": 159,
+        "fp": 0,
+        "tn": 503,
+        "fn": 0,
+        "support": 159,
+        "precision": 1.0,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "npv": 1.0,
+        "f1": 1.0,
+        "balanced_accuracy": 1.0,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      },
+      "early_blight": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 562,
+        "fn": 0,
+        "support": 100,
+        "precision": 1.0,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "npv": 1.0,
+        "f1": 1.0,
+        "balanced_accuracy": 1.0,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      },
+      "late_blight": {
+        "tp": 190,
+        "fp": 0,
+        "tn": 472,
+        "fn": 0,
+        "support": 190,
+        "precision": 1.0,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "npv": 1.0,
+        "f1": 1.0,
+        "balanced_accuracy": 1.0,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      },
+      "bacterial_spot": {
+        "tp": 213,
+        "fp": 0,
+        "tn": 449,
+        "fn": 0,
+        "support": 213,
+        "precision": 1.0,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "npv": 1.0,
+        "f1": 1.0,
+        "balanced_accuracy": 1.0,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      }
+    },
+    "roc_auc_ovr_macro": 1.0,
+    "roc_auc_ovr_weighted": 1.0,
+    "average_precision_macro": 1.0,
+    "multiclass_log_loss": 0.006242098881757673,
+    "multiclass_brier_score": 0.0013790036771570177,
+    "expected_calibration_error_10_bins": 0.005809160288992286,
+    "loss": 0.00629161307138583
+  },
+  "model_profile": {
+    "parameters_total": 6957956,
+    "parameters_trainable": 6957956,
+    "approximate_macs": 2833141760,
+    "approximate_flops": 5666283520,
+    "input_shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "latency_ms_per_batch": 24.329763300193008,
+    "throughput_images_per_second": 41.10192062542865,
+    "checkpoint_bytes": 84423226,
+    "process_max_rss_kb": 2055280.0,
+    "system_load_1m": 1.4091796875,
+    "cuda_allocated_bytes": 160181248.0,
+    "cuda_reserved_bytes": 436207616.0,
+    "cuda_peak_allocated_bytes": 202276352.0,
+    "gpu_utilization_percent": 54.0,
+    "gpu_temperature_c": 79.0,
+    "gpu_memory_used_mib": 539.0,
+    "gpu_power_w": 12.67,
+    "system_memory_total_kb": 16094848.0,
+    "system_memory_available_kb": 10725660.0
+  },
+  "epochs_completed": 20,
+  "device": "cuda:0 (NVIDIA GeForce RTX 4050 Laptop GPU)"
+}

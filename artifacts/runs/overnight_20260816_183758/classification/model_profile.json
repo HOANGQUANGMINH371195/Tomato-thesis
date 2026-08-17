@@ -1,0 +1,26 @@
+{
+  "parameters_total": 26099716,
+  "parameters_trainable": 26099716,
+  "approximate_macs": 3770830848,
+  "approximate_flops": 7541661696,
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "latency_ms_per_batch": 33.71075579998433,
+  "throughput_images_per_second": 29.664122807963412,
+  "checkpoint_bytes": 314154828,
+  "process_max_rss_kb": 2273192.0,
+  "system_load_1m": 1.5908203125,
+  "cuda_allocated_bytes": 684890624.0,
+  "cuda_reserved_bytes": 1098907648.0,
+  "cuda_peak_allocated_bytes": 857976832.0,
+  "gpu_utilization_percent": 17.0,
+  "gpu_temperature_c": 80.0,
+  "gpu_memory_used_mib": 1173.0,
+  "gpu_power_w": 12.87,
+  "system_memory_total_kb": 16094848.0,
+  "system_memory_available_kb": 10592892.0
+}

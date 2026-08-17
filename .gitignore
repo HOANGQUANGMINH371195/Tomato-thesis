@@ -1,0 +1,24 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# LaTeX build intermediates (keep report/main.pdf).
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.log
+report/*.lof
+report/*.lot
+report/*.out
+report/*.toc
+report/*.synctex.gz
+
+__pycache__/
+*.py[cod]

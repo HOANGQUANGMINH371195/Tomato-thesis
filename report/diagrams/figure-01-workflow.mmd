@@ -1,0 +1,36 @@
+%%{init: {
+  "theme": "base",
+  "flowchart": {"curve": "linear", "nodeSpacing": 85, "rankSpacing": 55, "htmlLabels": true},
+  "themeVariables": {
+    "fontFamily": "Arial, sans-serif",
+    "fontSize": "21px",
+    "lineColor": "#475569",
+    "primaryTextColor": "#111827"
+  }
+}}%%
+flowchart LR
+    input["Leaf image"] --> fork((" "))
+
+    fork --> classifier["DenseNet-121<br/>classifier"]
+    classifier --> disease["Disease class"]
+    disease --> confidence["Confidence score"]
+
+    fork --> segmenter["Segmentation<br/>model"]
+    segmenter --> mask["Lesion mask"]
+    mask --> severity["Severity (%)"]
+
+    confidence --> merge((" "))
+    severity --> merge
+    merge --> impact["Potential yield impact<br/>Low / central / high"]
+
+    style input fill:#dcfce7,stroke:#334155,stroke-width:2px,color:#111827
+    style fork fill:#475569,stroke:#475569,stroke-width:2px
+    style classifier fill:#dbeafe,stroke:#334155,stroke-width:2px,color:#111827
+    style disease fill:#dbeafe,stroke:#334155,stroke-width:2px,color:#111827
+    style confidence fill:#dbeafe,stroke:#334155,stroke-width:2px,color:#111827
+    style segmenter fill:#ffedd5,stroke:#334155,stroke-width:2px,color:#111827
+    style mask fill:#ffedd5,stroke:#334155,stroke-width:2px,color:#111827
+    style severity fill:#fef3c7,stroke:#334155,stroke-width:2px,color:#111827
+    style merge fill:#475569,stroke:#475569,stroke-width:2px
+    style impact fill:#f3e8ff,stroke:#334155,stroke-width:2px,color:#111827
+    linkStyle default stroke:#475569,stroke-width:3px;

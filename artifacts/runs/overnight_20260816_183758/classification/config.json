@@ -1,0 +1,99 @@
+{
+  "project": {
+    "name": "tomato-yield-impact",
+    "seed": 42,
+    "supported_classes": [
+      "healthy",
+      "early_blight",
+      "late_blight",
+      "bacterial_spot"
+    ],
+    "excluded_classes": [
+      "leaf_mold"
+    ]
+  },
+  "data": {
+    "root": "artifacts/data",
+    "audit_root": "artifacts/data",
+    "classification_manifest": "artifacts/data/classification_manifest.csv",
+    "segmentation_manifest": "artifacts/data/segmentation_manifest.csv",
+    "image_size_classification": 224,
+    "image_size_segmentation": 256,
+    "split": "group_stratified_80_10_10",
+    "group_key": "group_id",
+    "mask_encoding": "0=background,1=early_blight,2=late_blight,3=bacterial_spot",
+    "severity_denominator": "heuristic_leaf_mask_until_reviewed"
+  },
+  "classification": {
+    "model": "densenet121_custom_residual_attention",
+    "num_classes": 4,
+    "batch_size": 4,
+    "effective_batch_size": 16,
+    "epochs": 35,
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "freeze_backbone_epochs": 2,
+    "use_class_weights": true,
+    "amp": true,
+    "early_stopping_patience": 8
+  },
+  "segmentation": {
+    "model": "mcunet_segmentation",
+    "width_mult": 0.5,
+    "num_classes": 4,
+    "batch_size": 4,
+    "effective_batch_size": 16,
+    "epochs": 100,
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "loss": "0.5_cross_entropy_plus_0.5_dice",
+    "cross_entropy_weight": 0.5,
+    "dice_weight": 0.5,
+    "amp": true,
+    "early_stopping_patience": 15
+  },
+  "yield_loss": {
+    "early_blight_beta": 0.6,
+    "early_blight_beta_min": 0.5,
+    "early_blight_beta_max": 0.7,
+    "late_blight_beta": 1.1,
+    "late_blight_beta_min": 1.0,
+    "late_blight_beta_max": 1.2,
+    "bacterial_spot_beta": 0.4,
+    "bacterial_spot_beta_min": 0.3,
+    "bacterial_spot_beta_max": 0.45,
+    "clamp_min": 0.0,
+    "clamp_max": 100.0,
+    "note": "OUTDATA sensitivity scenario; requires field-yield calibration and must not be reported as a fitted causal model"
+  },
+  "experiments": {
+    "run_classification_baseline": true,
+    "run_segmentation_baseline": true
+  },
+  "logging": {
+    "output_root": "artifacts/runs",
+    "save_config": true,
+    "save_environment": true,
+    "save_git_state": true,
+    "save_checkpoints": true,
+    "save_predictions": true,
+    "save_confusion_matrix": true,
+    "save_curves": true
+  },
+  "runtime": {
+    "cli_task": "all",
+    "cli_epochs": null,
+    "cli_workers": 2,
+    "cli_unet_base": 16,
+    "cli_mcunet_width": null,
+    "cli_pretrained": true,
+    "cli_allow_random_init": false,
+    "cli_device": "auto",
+    "cli_resume": null,
+    "auto_resume": true,
+    "run_group": "overnight_20260816_183758",
+    "task": "classification"
+  }
+}

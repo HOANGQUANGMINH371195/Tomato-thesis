@@ -1,0 +1,146 @@
+{
+  "accuracy": 1.0,
+  "balanced_accuracy": 1.0,
+  "macro_f1": 1.0,
+  "weighted_f1": 1.0,
+  "matthews_correlation_coefficient": 1.0,
+  "cohen_kappa": 1.0,
+  "classification_report": {
+    "healthy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 159.0
+    },
+    "early_blight": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 100.0
+    },
+    "late_blight": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 190.0
+    },
+    "bacterial_spot": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 213.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 662.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 662.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      159,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      100,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      190,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      213
+    ]
+  ],
+  "per_class": {
+    "healthy": {
+      "tp": 159,
+      "fp": 0,
+      "tn": 503,
+      "fn": 0,
+      "support": 159,
+      "precision": 1.0,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "npv": 1.0,
+      "f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "early_blight": {
+      "tp": 100,
+      "fp": 0,
+      "tn": 562,
+      "fn": 0,
+      "support": 100,
+      "precision": 1.0,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "npv": 1.0,
+      "f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "late_blight": {
+      "tp": 190,
+      "fp": 0,
+      "tn": 472,
+      "fn": 0,
+      "support": 190,
+      "precision": 1.0,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "npv": 1.0,
+      "f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "bacterial_spot": {
+      "tp": 213,
+      "fp": 0,
+      "tn": 449,
+      "fn": 0,
+      "support": 213,
+      "precision": 1.0,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "npv": 1.0,
+      "f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    }
+  },
+  "roc_auc_ovr_macro": 1.0,
+  "roc_auc_ovr_weighted": 1.0,
+  "average_precision_macro": 1.0,
+  "multiclass_log_loss": 0.006242098881757673,
+  "multiclass_brier_score": 0.0013790036771570177,
+  "expected_calibration_error_10_bins": 0.005809160288992286,
+  "loss": 0.00629161307138583
+}

@@ -1,0 +1,38 @@
+[project]
+name = "thesis"
+version = "0.1.0"
+description = "Reproducible tomato leaf disease classification, lesion segmentation, severity and potential yield-impact sensitivity analysis"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.2",
+    "opencv-python-headless>=5.0.0.93",
+    "pandas>=3.0.5",
+    "pillow>=12.3.0",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.9.0",
+    "tabulate>=0.10.0",
+    "torch==2.9.1",
+    "torchvision==0.24.1",
+    "tqdm>=4.70.0",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

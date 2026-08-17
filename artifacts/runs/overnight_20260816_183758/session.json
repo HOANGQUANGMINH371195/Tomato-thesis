@@ -1,0 +1,27 @@
+{
+  "tasks": {
+    "classification_baseline": {
+      "status": "success",
+      "updated_at": "2026-08-16T19:26:16Z",
+      "path": "artifacts/runs/overnight_20260816_183758/classification_baseline"
+    },
+    "classification": {
+      "status": "success",
+      "updated_at": "2026-08-16T20:10:53Z",
+      "path": "artifacts/runs/overnight_20260816_183758/classification"
+    },
+    "segmentation_baseline": {
+      "status": "success",
+      "updated_at": "2026-08-16T20:21:16Z",
+      "path": "artifacts/runs/overnight_20260816_183758/segmentation_baseline"
+    },
+    "segmentation": {
+      "status": "success",
+      "updated_at": "2026-08-16T20:34:25Z",
+      "path": "artifacts/runs/overnight_20260816_183758/segmentation"
+    }
+  },
+  "run_group": "overnight_20260816_183758",
+  "status": "success",
+  "updated_at": "2026-08-16T20:34:25Z"
+}

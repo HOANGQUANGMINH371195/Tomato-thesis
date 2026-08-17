@@ -1,0 +1,32 @@
+{
+  "model": "critical-point linear sensitivity scenario",
+  "formula": "YL = clip(beta * severity_percent, 0, 100)",
+  "scientific_status": "Potential impact scenario; not calibrated against field-yield ground truth.",
+  "severity_source": "Semantic lesion mask divided by a documented heuristic leaf mask.",
+  "profiles": {
+    "early_blight": {
+      "display_name": "Early Blight",
+      "beta": 0.6,
+      "beta_min": 0.5,
+      "beta_max": 0.7,
+      "citation": "Saha, P., & Das, S. (2012). Assessment of Yield Loss Due to Early Blight (Alternaria solani) in Tomato. Indian Journal of Plant Protection, 40(3), 195\u2013198.",
+      "citation_status": "Study reports an absolute slope in t/ha per severity point; it does not validate beta=0.6 as a universal percentage coefficient."
+    },
+    "late_blight": {
+      "display_name": "Late Blight",
+      "beta": 1.1,
+      "beta_min": 1.0,
+      "beta_max": 1.2,
+      "citation": "Fontem, D. A. (2003). Quantitative Effects of Early and Late Blights on Tomato Yields in Cameroon. Tropicultura, 21(1), 36\u201341; Nowicki et al. (2012), Plant Disease 96(1), 4\u201317, doi:10.1094/PDIS-05-11-0458.",
+      "citation_status": "Field evidence supports potentially severe losses but not a universal beta=1.1 mapping."
+    },
+    "bacterial_spot": {
+      "display_name": "Bacterial Spot",
+      "beta": 0.4,
+      "beta_min": 0.3,
+      "beta_max": 0.45,
+      "citation": "Pohronezny, K., & Volin, R. B. (1983). The effect of bacterial spot on yield and quality of fresh market tomatoes. HortScience, 18(1), 69\u201370. https://doi.org/10.21273/HORTSCI.18.1.69",
+      "citation_status": "The paper reports yield effects but does not by itself validate beta=0.4 for this dataset."
+    }
+  }
+}

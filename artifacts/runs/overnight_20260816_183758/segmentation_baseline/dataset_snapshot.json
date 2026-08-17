@@ -1,0 +1,16 @@
+{
+  "manifest": "artifacts/data/segmentation_manifest.csv",
+  "rows": 750,
+  "counts": {
+    "test/bacterial_spot": 25,
+    "test/early_blight": 23,
+    "test/late_blight": 20,
+    "train/bacterial_spot": 200,
+    "train/early_blight": 202,
+    "train/late_blight": 201,
+    "val/bacterial_spot": 25,
+    "val/early_blight": 25,
+    "val/late_blight": 29
+  },
+  "device": "cuda:0 (NVIDIA GeForce RTX 4050 Laptop GPU)"
+}

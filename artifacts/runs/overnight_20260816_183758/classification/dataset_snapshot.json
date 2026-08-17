@@ -1,0 +1,19 @@
+{
+  "manifest": "artifacts/data/classification_manifest.csv",
+  "rows": 6613,
+  "counts": {
+    "test/bacterial_spot": 213,
+    "test/early_blight": 100,
+    "test/healthy": 159,
+    "test/late_blight": 190,
+    "train/bacterial_spot": 1701,
+    "train/early_blight": 800,
+    "train/healthy": 1268,
+    "train/late_blight": 1521,
+    "val/bacterial_spot": 213,
+    "val/early_blight": 100,
+    "val/healthy": 158,
+    "val/late_blight": 190
+  },
+  "device": "cuda:0 (NVIDIA GeForce RTX 4050 Laptop GPU)"
+}

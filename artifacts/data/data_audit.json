@@ -1,0 +1,127 @@
+{
+  "seed": 42,
+  "classification_rows": 6613,
+  "segmentation_rows": 750,
+  "classification_counts": [
+    {
+      "split": "test",
+      "label": "bacterial_spot",
+      "count": 213
+    },
+    {
+      "split": "test",
+      "label": "early_blight",
+      "count": 100
+    },
+    {
+      "split": "test",
+      "label": "healthy",
+      "count": 159
+    },
+    {
+      "split": "test",
+      "label": "late_blight",
+      "count": 190
+    },
+    {
+      "split": "train",
+      "label": "bacterial_spot",
+      "count": 1701
+    },
+    {
+      "split": "train",
+      "label": "early_blight",
+      "count": 800
+    },
+    {
+      "split": "train",
+      "label": "healthy",
+      "count": 1268
+    },
+    {
+      "split": "train",
+      "label": "late_blight",
+      "count": 1521
+    },
+    {
+      "split": "val",
+      "label": "bacterial_spot",
+      "count": 213
+    },
+    {
+      "split": "val",
+      "label": "early_blight",
+      "count": 100
+    },
+    {
+      "split": "val",
+      "label": "healthy",
+      "count": 158
+    },
+    {
+      "split": "val",
+      "label": "late_blight",
+      "count": 190
+    }
+  ],
+  "segmentation_counts": [
+    {
+      "split": "test",
+      "label": "bacterial_spot",
+      "count": 25
+    },
+    {
+      "split": "test",
+      "label": "early_blight",
+      "count": 23
+    },
+    {
+      "split": "test",
+      "label": "late_blight",
+      "count": 20
+    },
+    {
+      "split": "train",
+      "label": "bacterial_spot",
+      "count": 200
+    },
+    {
+      "split": "train",
+      "label": "early_blight",
+      "count": 202
+    },
+    {
+      "split": "train",
+      "label": "late_blight",
+      "count": 201
+    },
+    {
+      "split": "val",
+      "label": "bacterial_spot",
+      "count": 25
+    },
+    {
+      "split": "val",
+      "label": "early_blight",
+      "count": 25
+    },
+    {
+      "split": "val",
+      "label": "late_blight",
+      "count": 29
+    }
+  ],
+  "source_counts": {
+    "classification_raw_rows": 6627,
+    "classification_duplicate_groups": 14
+  },
+  "supported_labels": [
+    "bacterial_spot",
+    "early_blight",
+    "healthy",
+    "late_blight"
+  ],
+  "excluded_labels": [
+    "Tomato_Leaf_Mold"
+  ]
+}

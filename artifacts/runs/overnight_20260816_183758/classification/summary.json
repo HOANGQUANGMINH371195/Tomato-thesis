@@ -1,0 +1,180 @@
+{
+  "task": "classification",
+  "model": "densenet121_custom_residual_attention",
+  "best_val_macro_f1": 1.0,
+  "best_epoch": 8,
+  "test": {
+    "accuracy": 0.9909365558912386,
+    "balanced_accuracy": 0.9925315048183839,
+    "macro_f1": 0.9894838867334975,
+    "weighted_f1": 0.9909966092164679,
+    "matthews_correlation_coefficient": 0.9877245645596656,
+    "cohen_kappa": 0.9876650942663805,
+    "classification_report": {
+      "healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 159.0
+      },
+      "early_blight": {
+        "precision": 0.9523809523809523,
+        "recall": 1.0,
+        "f1-score": 0.975609756097561,
+        "support": 100.0
+      },
+      "late_blight": {
+        "precision": 0.9946808510638298,
+        "recall": 0.9842105263157894,
+        "f1-score": 0.9894179894179894,
+        "support": 190.0
+      },
+      "bacterial_spot": {
+        "precision": 1.0,
+        "recall": 0.9859154929577465,
+        "f1-score": 0.9929078014184397,
+        "support": 213.0
+      },
+      "accuracy": 0.9909365558912386,
+      "macro avg": {
+        "precision": 0.9867654508611955,
+        "recall": 0.9925315048183839,
+        "f1-score": 0.9894838867334975,
+        "support": 662.0
+      },
+      "weighted avg": {
+        "precision": 0.9912801464353821,
+        "recall": 0.9909365558912386,
+        "f1-score": 0.9909966092164679,
+        "support": 662.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        159,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        187,
+        0
+      ],
+      [
+        0,
+        2,
+        1,
+        210
+      ]
+    ],
+    "per_class": {
+      "healthy": {
+        "tp": 159,
+        "fp": 0,
+        "tn": 503,
+        "fn": 0,
+        "support": 159,
+        "precision": 1.0,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "npv": 1.0,
+        "f1": 1.0,
+        "balanced_accuracy": 1.0,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      },
+      "early_blight": {
+        "tp": 100,
+        "fp": 5,
+        "tn": 557,
+        "fn": 0,
+        "support": 100,
+        "precision": 0.9523809523809523,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.9911032028469751,
+        "npv": 1.0,
+        "f1": 0.975609756097561,
+        "balanced_accuracy": 0.9955516014234875,
+        "roc_auc": 0.9999466192170818,
+        "average_precision": 0.9997087378640777
+      },
+      "late_blight": {
+        "tp": 187,
+        "fp": 1,
+        "tn": 471,
+        "fn": 3,
+        "support": 190,
+        "precision": 0.9946808510638298,
+        "recall": 0.9842105263157894,
+        "sensitivity": 0.9842105263157894,
+        "specificity": 0.9978813559322034,
+        "npv": 0.9936708860759493,
+        "f1": 0.9894179894179894,
+        "balanced_accuracy": 0.9910459411239965,
+        "roc_auc": 0.9999330954504907,
+        "average_precision": 0.9998342209206195
+      },
+      "bacterial_spot": {
+        "tp": 210,
+        "fp": 0,
+        "tn": 449,
+        "fn": 3,
+        "support": 213,
+        "precision": 1.0,
+        "recall": 0.9859154929577465,
+        "sensitivity": 0.9859154929577465,
+        "specificity": 1.0,
+        "npv": 0.9933628318584071,
+        "f1": 0.9929078014184397,
+        "balanced_accuracy": 0.9929577464788732,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      }
+    },
+    "roc_auc_ovr_macro": 0.9999699286668932,
+    "roc_auc_ovr_weighted": 0.9999727342255309,
+    "average_precision_macro": 0.9998857396961742,
+    "multiclass_log_loss": 0.01769004800273543,
+    "multiclass_brier_score": 0.01049277162352322,
+    "expected_calibration_error_10_bins": 0.006730879731790374,
+    "loss": 0.017745749266497825
+  },
+  "model_profile": {
+    "parameters_total": 26099716,
+    "parameters_trainable": 26099716,
+    "approximate_macs": 3770830848,
+    "approximate_flops": 7541661696,
+    "input_shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "latency_ms_per_batch": 33.71075579998433,
+    "throughput_images_per_second": 29.664122807963412,
+    "checkpoint_bytes": 314154828,
+    "process_max_rss_kb": 2273192.0,
+    "system_load_1m": 1.5908203125,
+    "cuda_allocated_bytes": 684890624.0,
+    "cuda_reserved_bytes": 1098907648.0,
+    "cuda_peak_allocated_bytes": 857976832.0,
+    "gpu_utilization_percent": 17.0,
+    "gpu_temperature_c": 80.0,
+    "gpu_memory_used_mib": 1173.0,
+    "gpu_power_w": 12.87,
+    "system_memory_total_kb": 16094848.0,
+    "system_memory_available_kb": 10592892.0
+  },
+  "epochs_completed": 16,
+  "device": "cuda:0 (NVIDIA GeForce RTX 4050 Laptop GPU)"
+}

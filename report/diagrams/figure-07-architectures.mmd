@@ -1,0 +1,33 @@
+%%{init: {
+  "theme": "base",
+  "flowchart": {"curve": "linear", "nodeSpacing": 45, "rankSpacing": 80, "htmlLabels": true},
+  "themeVariables": {
+    "fontFamily": "Arial, sans-serif",
+    "fontSize": "21px",
+    "lineColor": "#475569",
+    "primaryTextColor": "#111827",
+    "clusterBkg": "#ffffff",
+    "clusterBorder": "#cbd5e1"
+  }
+}}%%
+flowchart TB
+    subgraph classification["Classification architecture"]
+        direction LR
+        c1["224 × 224<br/>RGB image"] --> c2["DenseNet-121<br/>features"] --> c3["Residual<br/>attention"] --> c4["Global<br/>pooling"] --> c5["Four-class<br/>softmax"]
+    end
+
+    subgraph segmentation["Segmentation architecture"]
+        direction LR
+        s1["256 × 256<br/>RGB image"] --> s2["Inverted-residual<br/>encoder"] --> s3["Multi-scale<br/>skip features"] --> s4["U-Net<br/>decoder"] --> s5["Four-class<br/>mask"]
+    end
+
+    classification ~~~ segmentation
+
+    classDef classifierNode fill:#dbeafe,stroke:#334155,stroke-width:2px,color:#111827;
+    classDef segmenterNode fill:#ffedd5,stroke:#334155,stroke-width:2px,color:#111827;
+    class c1,c2,c3,c4,c5 classifierNode;
+    class s1,s2,s3,s4,s5 segmenterNode;
+    style classification fill:#eff6ff,stroke:#60a5fa,stroke-width:2px
+    style segmentation fill:#fff7ed,stroke:#fb923c,stroke-width:2px
+    linkStyle default stroke:#475569,stroke-width:3px;
+    linkStyle 8 stroke:transparent,stroke-width:0px;

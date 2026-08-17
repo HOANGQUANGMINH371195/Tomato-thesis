@@ -1,0 +1,5 @@
+class,tp,fp,tn,fn,support,precision,recall,sensitivity,specificity,npv,f1,balanced_accuracy,roc_auc,average_precision
+healthy,159,0,503,0,159,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+early_blight,100,0,562,0,100,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+late_blight,190,0,472,0,190,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+bacterial_spot,213,0,449,0,213,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
