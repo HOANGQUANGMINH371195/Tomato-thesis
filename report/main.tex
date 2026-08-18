@@ -204,6 +204,13 @@ Bacterial Spot. These diseases produce visible symptoms such as spots, necrotic 
 and large damaged regions. Image-based analysis can support early screening when direct
 assessment by a plant-pathology specialist is not available.
 
+The effect of leaf damage is not limited to the leaf itself. Tomato Leaf Curl Virus (TLCV)
+provides a useful biological example: field observations have linked increasing disease
+incidence and severity with reduced plant growth, fruit production, fruit weight, and yield
+\cite{iftikhar2021tlcv}. TLCV is not one of the classes supported by this thesis; it is used
+here as related evidence that visible disease burden can have consequences at plant and
+crop level.
+
 Convolutional neural networks can learn disease-related visual features directly from
 images. Previous research on PlantVillage demonstrated high classification performance
 under controlled imaging conditions \cite{mohanty2016plantdisease}. Nevertheless, an
@@ -553,6 +560,47 @@ and high sensitivity scenarios. They are transparent analysis assumptions rather
 coefficients fitted from field measurements.
 The minimum operation keeps the result at or below 100\%.
 
+\subsubsection{Biological Evidence for Yield Impact}
+The relationship between leaf symptoms and yield is supported by field-based plant
+pathology, but it is not determined by image area alone. Iftikhar et al.~\cite{iftikhar2021tlcv}
+studied TLCV in tomato cv.~Nagina during the 2017--2018 growing season. Their experiment
+used four replications, recorded disease incidence at several times after planting, and
+measured plant height, fruit number, fruit weight, and fruit yield. Incidence increased
+from 8.32--25.00\% at 30 days after planting to 56.16--89.44\% at 75 days, depending on
+planting date. The authors also reported that later planting was associated with more
+whiteflies and higher incidence; the highest mean incidence in their planting-date
+comparison was 60.06\%.
+
+The same study reported a decrease in yield-related measurements across the planting-date
+comparison. Mean fruit number ranged from 42 to 25.67 fruits per plant, fruit weight from
+43 to 29 g, and yield from 3.47 to 2.01 kg per plant. The reported regression analysis
+found a negative association between TLCV incidence and yield ($R^2=0.5483$), while the
+association between whitefly population and yield was stronger ($R^2=0.9061$). The study
+also reported a negative association between incidence and plant height
+($R^2=0.8027$). These results show three important points for this project: disease
+burden can affect several yield components, disease progress and environmental conditions
+matter, and incidence is not identical to leaf-level severity.
+
+They also explain why the present system does not stop after classification. The classifier
+identifies the disease type, the segmenter estimates the visible affected area, and the
+severity value provides the image-level variable used by the potential-impact calculation.
+
+These values are evidence from a separate field study, not measurements from the present
+image dataset. They therefore do not replace the disease-specific sensitivity scenarios in
+Table~\ref{tab:beta}. Instead, they justify reporting severity and potential impact as
+separate outputs and motivate future calibration with repeated images and measured harvest
+records. The current project covers Early Blight, Late Blight, and Bacterial Spot, so the
+TLCV findings are used as biological context rather than as a direct coefficient for any
+of the three supported diseases. For the supported diseases, previous studies have also
+reported yield or quality effects: Early Blight is associated with measurable yield loss
+\cite{saha2012earlyblight}, Late Blight losses vary with epidemic conditions and cultivar
+\cite{fontem2003blights,nowicki2012lateblight}, and Bacterial Spot can reduce fresh-market
+yield and quality \cite{pohronezny1983bacterialspot}. These references support the use of
+the predicted class $d$ in Equation~\ref{eq:impact}; the lesion literature supports the use
+of $S$; and the TLCV study supports the broader biological link between disease burden and
+crop-level effects. None of these studies supplies a calibrated coefficient for the
+present PlantVillage-based image split.
+
 \begin{table}[H]
 \centering
 \caption{Sensitivity assumptions for potential yield impact.}
@@ -901,6 +949,26 @@ For the segmentation baseline, the mean central potential impact scenario was 6.
 The mean low and high scenarios were 5.46\% and 7.19\%. These numbers describe the test
 images only. They are not measured farm-yield losses.
 
+\subsubsection{Interpretation of Disease Effects}
+The predicted impact values should be interpreted as an image-based risk indicator. A
+higher lesion ratio increases the scenario value because more visible leaf area is
+affected, but a single image cannot observe flowering, fruit set, fruit size, plant age,
+or disease progression. The field evidence from TLCV is consistent with this interpretation:
+the reported effects extended beyond leaf symptoms to plant height, fruit number, fruit
+weight, and yield \cite{iftikhar2021tlcv}. It also showed that planting time, temperature,
+and vector pressure changed disease incidence. Consequently, the model can quantify
+visible disease burden and produce a transparent potential-impact range, but it cannot
+claim that the range is the actual harvest loss for a plant or a field.
+
+This interpretation is directly connected to the measured model results. DenseNet-121
+classified the controlled test images with a macro F1 of 1.0000, so disease identity was
+reliably separated within this split. The segmentation baseline reached 73.46\% macro
+Dice, while MCUNet-Seg reached 52.44\%. Therefore, the impact estimate is more dependent
+on segmentation quality than on classification quality in this experiment: an incorrect
+lesion area changes $S$, and $S$ changes all three impact scenarios. The lower MCUNet-Seg
+Dice score should consequently be read as greater uncertainty in its severity and
+potential-impact outputs, even when the predicted disease label is correct.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.98\textwidth]{yield-sensitivity.png}
@@ -991,6 +1059,13 @@ The leaf denominator is also heuristic. Some controlled images use almost the fu
 as the leaf region. This can underestimate or overestimate leaf-relative severity. Reviewed
 leaf masks are needed for a stronger severity claim.
 
+The yield-impact layer is also limited by biological transfer. The TLCV field study used
+repeated observations, a defined cultivar, environmental exposure, vector pressure, and
+direct measurements of fruit and yield \cite{iftikhar2021tlcv}. The present dataset does
+not contain these paired variables and does not contain TLCV labels. Its impact values are
+therefore scenario estimates that are informed by plant-disease literature, not causal
+estimates of crop loss.
+
 The segmentation test split contains only 68 images. Per-disease results can change with a
 larger external test. The 750 masks also come from controlled leaf images. Field leaves can
 have complex backgrounds, shadows, overlap, insects, and more than one disease.
@@ -1002,6 +1077,14 @@ reproducible, but repeated seeds would provide confidence intervals for model co
 The first next step is to collect field images with reviewed leaf and lesion masks. The
 second is to collect repeated disease severity and marketable yield for the same plants.
 This would allow the beta relation to be fitted and tested instead of assumed.
+
+A suitable field protocol should record disease incidence, leaf-level severity, plant age,
+cultivar, planting date, temperature, vector pressure, fruit number, fruit weight, and
+marketable yield. The TLCV study illustrates why these variables are useful: incidence
+changed across observation dates and planting dates, while fruit number, fruit weight, and
+yield changed at the same time \cite{iftikhar2021tlcv}. Similar longitudinal records for
+Early Blight, Late Blight, and Bacterial Spot would make the proposed impact layer more
+specific and scientifically testable.
 
 For classification, future work should test the baseline on PlantDoc or a local field set.
 For segmentation, the Attention-Residual U-Net can be improved with stronger but safe
